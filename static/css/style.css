@@ -1,0 +1,44 @@
+h1 {
+    color: #23504D;
+    padding: 5px;
+}
+
+h2 {
+    color: #568248;
+    font-style: italic;
+    padding: 5px;
+}
+
+h3 {
+    font-size: 40%;
+}
+
+.intestazione {
+    color: #6F9B3C;
+}
+
+h4 {
+    color: #A5CF61;
+}
+
+body {
+    padding-top: 60px
+}
+
+footer {
+    padding: 30px;
+    padding-top: 60px;
+    /* background-color: blue; */
+    text-align: center;
+}
+
+.cc {
+    font-size: 10px;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

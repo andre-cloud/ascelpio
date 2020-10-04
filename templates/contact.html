@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<title>{% block head_title %} {{block.super}} | Contacts {% endblock head_title %} </title>
+
+<body>
+    <h1>Contacts</h1>
+    <h2> Contattaci alla nostra mail ufficiosa </h2>
+    <center>
+        <img src='{% static  "imags/iu.jpeg" %}'/>
+    </center>
+</body>
+
+
+{% endblock content %}

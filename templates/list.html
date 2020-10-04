@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+html, body {
+      height: 100%;
+      background-color: #E8FFF1;
+}
+
+.page-item.active .page-link{
+  background-color: green;
+  border-color: green;  
+}
+
+.testo{
+  font-size: medium;
+  padding: 10px;
+}
+
+h2{
+  font-size: 30px;
+  font-family: 'Alice';
+}
+
+.date {
+  font-size: 12px;
+
+}
+
+</style>
+
+
+  <div class="container" style="padding-bottom: 50px; padding-left: 0%; padding-right: 0%;">
+    <div class="row justify-content-md-center" style="padding-top: 20px;">
+      <div class="col-md-auto justify-content-md-center">
+        <h5 class="nav-link" style="font-family: 'Alice'">  
+          <a class="navbar-brand" href="/">
+            <img src="{% static 'imags/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+          </a>
+          Ascelpio
+        </h5>
+      </div>
+      <div class="col col-lg-2">
+        <a class="nav-link" href="/" style="font-family: 'Alice'">Subjects</a>
+      </div>
+      <div class="col col-lg-2">
+        <a class="nav-link" href="contatti/" style="font-family: 'Alice'">Contact</a>
+      </div>
+    </div>
+  </div>
+
+{% for object in object_list %}
+    <a href="/{{ object.id }}/{{ object.slug }}/"><h2>{{object.title}}</h2></a>
+    <p class="date">{{object.date}}</p>
+    <h3 class="testo">{{object.text|safe|linebreaks|truncatewords_html:20}}</h3>
+    <div class="h-divider" style="color: black;"></div>
+{% endfor %}
+
+
+<div class="pagination">
+    <span class="step-links">
+        <nav aria-label="Navigate thought pages">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page=1"> &laquo; Prima</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Precedente</a></li>
+                {% endif %}
+                
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+                {% endif %}
+                <li class="page-item active" aria-current="page"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+                {% endif %}
+
+                {% if page_obj.has_next %}    
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Successiva</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Ultima &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        
+    </span>
+</div>
+
+
+
+
+{% endblock content %}
