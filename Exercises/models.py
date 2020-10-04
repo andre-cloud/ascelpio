@@ -8,6 +8,7 @@ class Exercise(models.Model):
     text = models.TextField()
     date = models.DateTimeField(auto_now=False, auto_now_add=True)
     referance = models.TextField()
+    status = models.CharField(max_length=10, default="Draft", editable=False)
     slug = models.SlugField() #human-friendly URL
 
     def __str__(self) -> str:
@@ -21,7 +22,7 @@ class Matematica(Exercise):
         stu_func = 'FUN', ('Studio di funzioni')
 
     argomento = models.CharField(max_length=3, choices=Argomento.choices, default=Argomento.matrici)
-    dimostrazione = models.TextField()
+    dim = models.TextField()
     grafico = models.FileField(blank=True)
 
     def __str__(self) -> str:
@@ -98,8 +99,3 @@ def get_modello(nome):
         if materia == nome:
             return modello
     raise Exception("Materia inesistente")
-
-
-def get_variabili(materia):
-    print(materia.__dict__)
-    return materia.__dict__

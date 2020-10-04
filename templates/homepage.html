@@ -66,11 +66,7 @@
       margin-left: 1rem;
     }
 
-    .nav-masthead .active {
-      /* color: #fff; */
-      /* border-bottom-color: #fff; */
-    }
-
+    
     @media (min-width: 48em) {
       .masthead-brand {
         float: left;
@@ -129,7 +125,7 @@
       <div class="inner" style="padding-top: 20px;">
         <h3 class="masthead-brand" style="font-family: 'Alice'">Ascelpio</h3>
         <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link active" href="table-of-subjects/" style="font-family: 'Alice'">Subjects</a>
+          <a class="nav-link active" id='cta' style="font-family: 'Alice'">Subjects</a>
           <a class="nav-link" href="contatti/" style="font-family: 'Alice'">Contact</a>
         </nav>
       </div>
@@ -138,7 +134,7 @@
 
   <div role="main justify-content-center" class="inner cover" style="padding-top: 70px;">
     <h1 class="cover-heading" style="font-family: 'Alice'">Ascelpio</h1>
-    <img style="display: block; margin-left: auto; margin-right: auto; width: 30%;"  src="{% static 'imags/logo.png' %}"/>
+    <img style="display: block; margin-left: auto; margin-right: auto; width: 30%;"  id='cta' src="{% static 'imags/logo.png' %}"/>
     <p class="lead">Dagli studenti per gli studenti</p>
     <p class="lead">
       <a href="#" class="btn btn-lg btn-secondary" id="cta">Cominciamo</a>

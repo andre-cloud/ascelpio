@@ -22,20 +22,44 @@
     </div>
 </div>
 
-<h1>{{object.title}}</h1>
-<h2> {{object.subject }} </h2>
-<h3 class='intestazione'>Testo esercizio:</h3>
+<h1 style="color: #235043; padding-bottom: 10px; font-family: 'Alice';">{{object.title}}</h1>
+
+<h4 style="color: #568248; padding: 5px; font-family: 'Alice';">Testo esercizio:</h4>
 <h3> {{object.text | linebreaks}}</h2>
 
-<h4> Dati e svolgimento </h4>
-<p>{{object.vars | safe | linebreaks}}</p>
-<p>{{object.eqs | safe | linebreaks}}</p>
-<p>{{object.comment | safe | linebreaks}}</p>
+<h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Dati e svolgimento </h4>
+{% if object.strutture %}
+<p>{{object.strutture | safe | linebreaks}}</p> <!-- chimica organica -->
+{% endif %}
 
-<h4> Risultato </h4>
-<p>{{object.result | safe | linebreaks}}</p>
+{% if object.meccanismo %}
+<p>{{object.meccanismo | safe | linebreaks}}</p> <!-- chimica organica, se c'è -->
+{% endif %}
 
-<p style="font-size: small;">{{object.referance | safe | linebreaks}}</p>
+{% if object.dim %}
+<p>{{object.dim | linebreaks }}</p> <!-- matematica -->
+{% endif %}
+
+{% if object.grafico %}
+<p>{{object.grafico | safe | linebreaks}}</p> <!-- matematica, se c'è -->
+{% endif %}
+
+{% if object.sistema %}
+<p>{{object.sistema | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
+{% endif %}
+
+
+<h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Commenti e risultati </h4>
+
+{% if object.commento %}
+<p>{{object.commento | safe | linebreaks}}</p> <!-- non matematica -->
+{% endif %}
+
+{% if object.risultato %}
+<p>{{object.risultato | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
+{% endif %}
+
+<p style="font-size: small;">Esercizio preso da: {{object.referance | safe | linebreaks}}</p>
 
 <p style="font-size: small;">Esercizio caricato: {{object.date}}</p>
 
