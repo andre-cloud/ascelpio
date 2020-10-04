@@ -19,8 +19,8 @@ urlpatterns = [
     path('<str:materia>/<str:argomento>', ExcerciseListView.as_view(
         template_name="list.html", paginate_by = 3), name='list'),
 
-    path('<int:id>/<slug:slug>/', ExerciseDetailView.as_view(
-        template_name="single.html"), name='single'), # Post singoli
+    path('<int:id>/<slug:slug>/', DetailView.as_view(
+        queryset=Exercise.objects, template_name="single.html"), name='single'), # Post singoli
     #È da cambiare il link... Metti che sfiga vuole che tu abbia due id e due indici uguali in due materie diverse... Sei fottuto
     #TODO: change link
 
