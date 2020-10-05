@@ -23,7 +23,6 @@ class Admin(admin.ModelAdmin):
     class Meta():
         model = Exercise
 
-
 admin.site.register(Matematica, Admin)
 admin.site.register(Chimica_Generale_Analitica, Admin)
 admin.site.register(Chimica_Organica, Admin)

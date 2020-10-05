@@ -16,7 +16,7 @@ urlpatterns = [
         template_name="list.html", paginate_by = 3), name='list'),
 
     path('<int:id>/<slug:slug>/', DetailView.as_view(
-        queryset=Exercise.objects.all(), template_name="single.html"), name='single'), # Post singoli
+        queryset=Exercise.objects, template_name="single.html"), name='single'), # Post singoli
 
     path('contatti/', post_views.contact, name='contacts'), # Sezione contatti
 ]
