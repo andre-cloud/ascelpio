@@ -1,8 +1,10 @@
 from django.db import models
+from polymorphic.models import PolymorphicModel
+
 
 # Create your models here.
 
-class Exercise(models.Model):
+class Exercise(PolymorphicModel):
 
     title = models.CharField(max_length=120)
     text = models.TextField()

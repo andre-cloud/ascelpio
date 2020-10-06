@@ -29,14 +29,6 @@
 
 <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Dati e svolgimento </h4>
 
-{% for key, value in object.__dict__ %}
-
-<h1>
-    {{ key }} corrispond to {{ value }}
-</h1>
-{%endfor%}
-
-<p>.---------------------------</p>
 
 {% if object.strutture %}
 <p>{{object.strutture | safe | linebreaks}}</p> <!-- chimica organica -->
