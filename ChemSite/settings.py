@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'django.contrib.sites',
+    'polymorphic',
     'Exercises',
 ]
 
@@ -53,8 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'polymorphic',
-    'django.contrib.contenttypes',
     # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
@@ -119,5 +118,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 
 # Activate Django-Heroku.
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
