@@ -15,6 +15,11 @@ class Exercise(PolymorphicModel):
 
     def __str__(self) -> str:
         return self.title
+    
+    class Meta:
+        verbose_name = 'Esercizio'
+        verbose_name_plural = 'Esercizi'
+
 
 
 class Matematica(Exercise):
@@ -35,6 +40,10 @@ class Matematica(Exercise):
 
     def desc(self):
         return """ La regina delle scienze. Senza di lei non esisterebbe nessuna teoria. """
+
+    class Meta:
+        verbose_name = 'Matematica'
+        verbose_name_plural = verbose_name
 
 
 class Chimica_Organica(Exercise):
@@ -61,6 +70,10 @@ class Chimica_Organica(Exercise):
     def desc(self):
         return """ La chimica che si occupa dello studio della chimica del carbonio e come questo interagisca con gli altri elementi della tavola periodica. """
 
+    class Meta:
+        verbose_name = 'Chimica Organica'
+        verbose_name_plural = verbose_name
+
 class Chimica_Generale_Analitica(Exercise):
 
     class Argomento(models.TextChoices):
@@ -85,6 +98,10 @@ class Chimica_Generale_Analitica(Exercise):
     def desc(self):
         return """ La chimica che si occupa dei vari equilibri in soluzione acquosa """
 
+    class Meta:
+        verbose_name = 'Chimica Generale ed Analitica'
+        verbose_name_plural = verbose_name
+
 class Chimica_Fisica(Exercise):
 
     class Argomento(models.TextChoices):
@@ -104,6 +121,10 @@ class Chimica_Fisica(Exercise):
 
     def desc(self):
         return """ La chimica che si occupa di studiare la fisica che sottostà ai diversi eventi chimici """
+
+    class Meta:
+        verbose_name = 'Chimica Fisica'
+        verbose_name_plural = verbose_name
 
 import sys, inspect
 
