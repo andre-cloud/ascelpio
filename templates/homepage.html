@@ -137,7 +137,7 @@
     <img style="display: block; margin-left: auto; margin-right: auto; width: 30%;"  id='cta' src="{% static 'imags/logo.png' %}"/>
     <p class="lead">Dagli studenti per gli studenti</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary" id="cta">Cominciamo</a>
+      <a class="btn btn-lg btn-secondary" id="cta">Cominciamo</a>
     </p>
   </div>
 
@@ -172,11 +172,11 @@
 
 <script>
 $(function() {
-  $('#cta').on('click', function(e) {
+  $('#cta').on(function(e) {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $('.scelta').offset().top
-    }, 300);
+    });
   });
 });
 </script>
