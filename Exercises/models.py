@@ -40,12 +40,15 @@ class Matematica(Exercise):
 class Chimica_Organica(Exercise):
 
     class Argomento(models.TextChoices):
-        alcani = 'CAN', ('Alcani')
-        alcheni = 'CHE', ('Alcheni')
-        alchini = 'CHI', ('Alchini')
-        aromatici = 'PHS', ('Aromatici')
-        carbonile = 'RCO', ('Carbonile')
-        sintesi = 'SIN', ('Sintesi')
+        alcani = 'CAN', ('1. Alcani')
+        alcheni = 'CHE', ('2. Alcheni')
+        alchini = 'CHI', ('3. Alchini')
+        aromatici = 'PHS', ('4. Aromatici')
+        alogenoderivati = 'ALO', ('5. Alogenoderivati')
+        alcoli = 'ALC', ('5. Alcoli e Tioli')
+        ammine = 'AMM', ('6. Ammine')
+        carbonile = 'RCO', ('7. Carbonile')
+        sintesi = 'SIN', ('8. Sintesi')
     
     argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
     strutture = models.FileField(help_text='Caricare un file .png/.svg/.jpeg contenente lo schema della reazione')
@@ -85,10 +88,11 @@ class Chimica_Generale_Analitica(Exercise):
 class Chimica_Fisica(Exercise):
 
     class Argomento(models.TextChoices):
-        gas = 'GAS', ('Teorie dei gas')
-        termodinamica = 'THM', ('Termodinamica e termochimica')
-        cinetica = 'KIN', ('Cinetica chimica')
-        elettrodi = 'ELE', ('Elettrodi')
+        gas = 'GAS', ('1. Teorie dei gas')
+        termodinamica = 'THD', ('2. Termodinamica')
+        termochimica = 'THC', ('3. Termochimica')
+        cinetica = 'KIN', ('4. Cinetica chimica')
+        elettrodi = 'ELE', ('5. Elettrodi')
 
     argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
     sistema = models.TextField(help_text='Scrivere qui le varie equazioni utilizzate per risolvere il problema. Possibilmente numerarle.')
