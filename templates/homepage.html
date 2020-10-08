@@ -125,7 +125,7 @@
       <div class="inner" style="padding-top: 20px;">
         <h3 class="masthead-brand" style="font-family: 'Alice'">Ascelpio</h3>
         <nav class="nav nav-masthead justify-content-center">
-          <a href='#' class="nav-link active" class='cta' style="font-family: 'Alice'">Subjects</a>
+          <a href='#' class="nav-link active" id='scritta' style="font-family: 'Alice'">Materie</a>
           <a class="nav-link" href="/contatti/" style="font-family: 'Alice'">Contact</a>
         </nav>
       </div>
@@ -171,6 +171,8 @@
 </div>
 
 <script>
+
+  // per l'immagine
 $(function() {
   $('#cta').on('click', function(e) {
     e.preventDefault();
@@ -180,8 +182,19 @@ $(function() {
   });
 });
 
+// per il bottone
 $(function() {
   $('.cta').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('.scelta').offset().top
+    }, 300);
+  });
+});
+
+// per la scritta Materie
+$(function() {
+  $('#scritta').on('click', function(e) {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $('.scelta').offset().top
