@@ -25,8 +25,19 @@ class Exercise(PolymorphicModel):
 class Matematica(Exercise):
 
     class Argomento(models.TextChoices):
-        matrici = 'MAT', ('Matrici')
-        stu_func = 'FUN', ('Studio di funzioni')
+        n_reali = 'NRE', ('1. Numeri reali')
+        n_complessi = 'COM', ('2. Numeri complessi')
+        sp_euclideo = 'EUC', ('3. Lo spazio euclideo \(R^n\)')
+        topo = 'TOP', ('4. Topologia di \(R^n\)')
+        asint = 'ASI', ('5. Confronto asintotico')
+        serie = 'SER', ('6. Serie')
+        serie_pot = 'SEP', ('7. Serie di potenze')
+        deriv = 'DER', ('8. Derivate')
+        fun_ele = 'FEL', ('9. Funzioni elemntari')
+        arg_complex= 'ACO', ('10. Argomento di un numero complesso')
+        prim_int = 'INT', ('11. Primitive ed integrali')
+        svil_serie = 'SSE', ('12. Sviluppi in serie')
+        int_improp = 'INI', ('13. Integrali impropi')
 
     argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
     grafico = models.FileField(blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente l\'eventuale grafico necessario per la dimostrazione')
