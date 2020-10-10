@@ -88,6 +88,7 @@ class Chimica_Organica(Exercise):
 class Chimica_Generale_Analitica(Exercise):
 
     class Argomento(models.TextChoices):
+        intro = 'INT', ('0. Nomenclatura e Cifre significative')
         theo_atomica = 'ATM', ('1. Teoria atomica e Proprietà periodiche')
         reactions = 'REA', ('2. Reazioni chimiche')
         stechio = 'STE', ('3. Stechiometria')
