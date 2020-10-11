@@ -117,6 +117,11 @@
     background-color: rgb(2, 114, 77);
     border: .05rem solid rgb(2, 114, 77);
     }
+
+    .card {
+      height: 255px;
+    }
+
   </style>
 
 <div class="text-center" style="height: calc(100vh - 60px)">
@@ -146,26 +151,29 @@
 
 <div class="scelta">
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3" style='padding-bottom: 15px;'>
       {% for nome, materia in materie %}
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{ materia }}</h5>
-            <p class="card-text"> {{ materia.desc }} </p>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sotto Argomenti
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% for key, value in materia.Argomento.choices %}
-                <a class="dropdown-item" href="{{ nome }}/{{ key }}">{{ value }}</a>
-                {% endfor %}
+        <div class="col" style='padding-bottom: 15px;'>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="text-align: center;">{{ materia }}</h5>
+              <p>   </p>
+              <p class="card-text" style="align-content: center;"> {{ materia.desc }} </p>
+            </div>
+            <div class="card-footer" style="background-color: #b0ebc7;">
+              <div class="dropdown" style="text-align: center;">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Sotto Argomenti
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  {% for key, value in materia.Argomento.choices %}
+                  <a class="dropdown-item" href="{{ nome }}/{{ key }}">{{ value }}</a>
+                  {% endfor %}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       {% endfor %}
     </div>
   </div>
@@ -173,7 +181,7 @@
 
 <script>
 
-  // per l'immagine
+// per l'immagine
 $(function() {
   $('#cta').on('click', function(e) {
     e.preventDefault();
