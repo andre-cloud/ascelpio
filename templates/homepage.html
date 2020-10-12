@@ -155,9 +155,10 @@
       {% for nome, materia in materie %}
         <div class="col" style='padding-bottom: 15px;'>
           <div class="card">
-            <div class="card-body">
-              <h5 class="card-title" style="text-align: center;">{{ materia }}</h5>
-              <p>   </p>
+            <div class="card-header" style="background-color: #ffffff;">
+              <h5 class="card-title" style="text-align: center; ">{{ materia }}</h5>
+            </div>
+              <div class="card-body">
               <p class="card-text" style="align-content: center;"> {{ materia.desc }} </p>
             </div>
             <div class="card-footer" style="background-color: #b0ebc7;">
