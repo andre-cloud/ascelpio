@@ -13,7 +13,7 @@ urlpatterns = [
     path('', post_views.homepage, name='homepagne'), #homepage
 
     path('<str:materia>/<str:argomento>', ExcerciseListView.as_view(
-        template_name="list.html", paginate_by = 3), name='list'),
+        template_name="list.html", paginate_by = 33), name='list'),
 
     path('<int:id>/<slug:slug>/', DetailView.as_view(
         queryset=Exercise.objects, template_name="single.html"), name='single'), # Post singoli
