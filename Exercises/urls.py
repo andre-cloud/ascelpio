@@ -6,7 +6,7 @@ from .models import *
 
 class ExcerciseListView(ListView):
     def get_queryset(self):
-        return get_modello(self.kwargs['materia']).objects.filter(argomento=self.kwargs['argomento'], status='Pubblished')
+        return get_modello(self.kwargs['materia']).objects.filter(argomento=self.kwargs['argomento'], status='Pubblished').order_by('-date')
 
 
 urlpatterns = [

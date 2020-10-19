@@ -58,6 +58,7 @@ h2{
 </style>
 
 
+
 <div class="container">
   <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">  
     {% for object in object_list %}
@@ -68,18 +69,15 @@ h2{
               <h5 class='card-title' style='color: #568248; font-style: italic; padding: 5px; text-align: center;'>{{object.title}}</h5>
             </a>
             <p class="card-text">{{object.text|safe|linebreaks|truncatewords_html:10}}</p>
-            <p class="date">{{object.date}}</p>
+          </div>
+          <div class="card-footer" style="background-color: #b0ebc7; text-align: center; padding: 8px">
+            <span class="date">{{object.date}}</span>
           </div>
         </div>
       </div>
     {% endfor %}
   </div>
 </div>
-
-
-    
-    
-    <div class="h-divider" style="color: black;"></div>
 
 
 
