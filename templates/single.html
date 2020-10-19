@@ -33,70 +33,59 @@ html, body {
 
 </style>
 
-<div class="text-center" style='height: 20vh;'>
-    <div class="cover-container d-flex w-100 h-90 p-2 mx-auto flex-column">
-      <header class="masthead mb-auto">
-      <div class="inner" style="padding-top: 20px;">
-        <h3 class="masthead-brand" style="font-family: 'Alice'">
-            <a class="navbar-brand" href="/">
-                <img src="{% static 'imags/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-            </a>
-          Ascelpio
-        </h3>
-          <nav class="nav nav-masthead justify-content-center">
-          <a href='/' class="nav-link active" style="font-family: 'Alice'">Materie</a>
-          <a class="nav-link" href="/contatti/" style="font-family: 'Alice'">Contattaci</a>
-          <a class="nav-link" href="/admin/" style="font-family: 'Alice'">Log-in</a>
-          </nav>
-      </div>
-      </header>
-    </div>
-</div>
-
 <h1 style="color: #235043; padding-bottom: 10px; font-family: 'Alice';">{{object.title}}</h1>
 
 <h4 style="color: #568248; padding: 5px; font-family: 'Alice';">Testo esercizio:</h4>
 <h3> {{object.text | linebreaks}}</h2>
 
-<h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Dati e svolgimento </h4>
+<a class="btn btn-primary" onclick="mostraRisultati(this)">Mostra Risultati</a>
+
+<div id="result" style="display:none">
+  <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Dati e svolgimento </h4>
+
+  {% if object.strutture %}
+  <img src='{{object.strutture.url}}'>
+  {% endif %}
+
+  {% if object.meccanismo %}
+  <p>{{object.meccanismo | safe | linebreaks}}</p> <!-- chimica organica, se c'è -->
+  {% endif %}
+
+  {% if object.dim %}
+  <p>{{object.dim | linebreaks }}</p> <!-- matematica -->
+  {% endif %}
+
+  {% if object.grafico %}
+  <p>{{object.grafico | safe | linebreaks}}</p> <!-- matematica, se c'è -->
+  {% endif %}
+
+  {% if object.sistema %}
+  <p>{{object.sistema | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
+  {% endif %}
 
 
-<!-- {% if object.strutture %} -->
-<!-- <form enctype="multipart/form-data" method="post" action="/foo/"></form> -->
-<!-- <p>{{object.strutture | safe | linebreaks}}</p> chimica organica -->
-<!-- {% endif %} -->
+  <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Commenti e risultati </h4>
 
-{% if object.meccanismo %}
-<p>{{object.meccanismo | safe | linebreaks}}</p> <!-- chimica organica, se c'è -->
-{% endif %}
+  {% if object.commento %}
+  <p>{{object.commento | safe | linebreaks}}</p>
+  {% endif %}
 
-{% if object.dim %}
-<p>{{object.dim | linebreaks }}</p> <!-- matematica -->
-{% endif %}
-
-{% if object.grafico %}
-<p>{{object.grafico | safe | linebreaks}}</p> <!-- matematica, se c'è -->
-{% endif %}
-
-{% if object.sistema %}
-<p>{{object.sistema | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
-{% endif %}
-
-
-<h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Commenti e risultati </h4>
-
-{% if object.commento %}
-<p>{{object.commento | safe | linebreaks}}</p>
-{% endif %}
-
-{% if object.risultato %}
-<p>{{object.risultato | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
-{% endif %}
+  {% if object.risultato %}
+  <p>{{object.risultato | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
+  {% endif %}
+</div>
 
 <p style="font-size: small;">Esercizio preso da: {{object.referance | safe}}</p>
 
 <p style="font-size: small;">Esercizio caricato: {{object.date}}</p>
 
+<script>
 
+function mostraRisultati (el) {
+  $('#result').slideToggle();
+  $(el).hide();
+}
+
+</script>
 
 {% endblock content %}

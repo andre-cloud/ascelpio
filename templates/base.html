@@ -59,12 +59,38 @@
 
     <!-- my CSS File -->
     <link rel="stylesheet" href='{% static "css/style.css" %}'>
+
+    <style>
+
+      .menu-chiaro {
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+    </style>
     
   </head>
-
-
-
 <body>
+  <nav class="navbar navbar-light sticky-top" style="font-family: 'Alice'">
+    <div class="container">
+        <div class="d-flex flex-column align-items-center w-100">
+            <a class="navbar-brand ml-lg-2 ml-3" href="/"><img src="{% static 'imags/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> Ascelpio</a>
+            <div class="navbar-expand ml-lg-0 ml-3">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Materie</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/contatti/">Contattaci</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/admin/">Log-in</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
    
   <div class="container">
     {% block content %}
@@ -84,5 +110,32 @@
         </span>
       </div>
     </footer>
+
+  <script>
+
+    var scrolled = false;
+
+    let $nav = $('.navbar');
+    let $navContent = $nav.find('.d-flex');
+
+    $(window).on('scroll', function (e) {
+      if ($(window).scrollTop() > 60) {
+        if (!scrolled) {
+          scrolled = true;
+          $nav.addClass('menu-chiaro');
+          $navContent.removeClass('flex-column');
+          $navContent.addClass('flex-row');
+          $navContent.addClass('justify-content-between');
+        }
+      } else {
+        scrolled = false;
+        $nav.removeClass('menu-chiaro');
+        $navContent.removeClass('justify-content-between');
+        $navContent.removeClass('flex-row');
+        $navContent.addClass('flex-column');
+      }
+    });
+
+  </script>
 </body>
 </html>

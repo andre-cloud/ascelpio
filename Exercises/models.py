@@ -71,8 +71,8 @@ class Chimica_Organica(Exercise):
         sintesi = 'SIN', ('8. Sintesi')
     
     argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
-    strutture = models.FileField(help_text='Caricare un file .png/.svg/.jpeg contenente lo schema della reazione')
-    meccanismo = models.FileField(blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente lo schema dell\'eventuale meccanismo di reazione')
+    strutture = models.ImageField(upload_to='str/',help_text='Caricare un file .png/.svg/.jpeg contenente lo schema della reazione')
+    meccanismo = models.ImageField(blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente lo schema dell\'eventuale meccanismo di reazione')
     commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scelta di ciò che è stato caricato come "struttura" e nell\'eventuale meccanismo.')
 
     def __str__(self) -> str:
