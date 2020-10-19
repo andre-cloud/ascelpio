@@ -40,7 +40,7 @@ class Matematica(Exercise):
         int_improp = 'INI', ('13. Integrali impropi')
 
     argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
-    grafico = models.FileField(blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente l\'eventuale grafico necessario per la dimostrazione')
+    grafico = models.ImageField(upload_to='graphs', blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente l\'eventuale grafico necessario per la dimostrazione')
     dim = models.TextField(help_text='Scrivere la dimostrazione per risolvere il problema. È pensato anche come entry per definire l\'eventuale sistema di equazioni per risolvere il problema.')
     commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scelta di ciò che è stato caricato come "struttura" e nell\'eventuale meccanismo.')
     risultato = models.TextField(help_text='Evidenziare il risultato ottenuto dalla risoluzione delle equazioni.', blank=True)
@@ -72,7 +72,7 @@ class Chimica_Organica(Exercise):
     
     argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
     strutture = models.ImageField(upload_to='str/',help_text='Caricare un file .png/.svg/.jpeg contenente lo schema della reazione')
-    meccanismo = models.ImageField(blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente lo schema dell\'eventuale meccanismo di reazione')
+    meccanismo = models.ImageField(upload_to='mech/', blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente lo schema dell\'eventuale meccanismo di reazione')
     commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scelta di ciò che è stato caricato come "struttura" e nell\'eventuale meccanismo.')
 
     def __str__(self) -> str:
