@@ -33,10 +33,10 @@ html, body {
 
 </style>
 
-<h1 style="color: #235043; padding-bottom: 10px; font-family: 'Alice';">{{object.title}}</h1>
+<h2 style="color: #235043; padding-bottom: 10px; font-family: 'Alice';">{{object.title}}</h2>
 
 <h4 style="color: #568248; padding: 5px; font-family: 'Alice';">Testo esercizio:</h4>
-<h3> {{object.text | linebreaks}}</h2>
+<h4> {{object.text | linebreaks}}</h4>
 
 <a class="btn btn-primary" onclick="mostraRisultati(this)">Mostra Risultati</a>
 
@@ -48,36 +48,36 @@ html, body {
   {% endif %}
 
   {% if object.meccanismo %}
-  <p>{{object.meccanismo | safe | linebreaks}}</p> <!-- chimica organica, se c'è -->
+  <img src='{{object.meccanismo.url}}'><!-- chimica organica, se c'è -->
   {% endif %}
 
   {% if object.dim %}
-  <p>{{object.dim | linebreaks }}</p> <!-- matematica -->
+  <span>{{object.dim | linebreaks }}</span> <!-- matematica -->
   {% endif %}
 
   {% if object.grafico %}
-  <p>{{object.grafico | safe | linebreaks}}</p> <!-- matematica, se c'è -->
+  <img src='{{object.grafico.url}}'> <!-- matematica, se c'è -->
   {% endif %}
 
   {% if object.sistema %}
-  <p>{{object.sistema | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
+  <span>{{object.sistema | safe | linebreaks}}</span> <!-- Chimica generale e fisica -->
   {% endif %}
 
 
   <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Commenti e risultati </h4>
 
   {% if object.commento %}
-  <p>{{object.commento | safe | linebreaks}}</p>
+  <span>{{object.commento | safe | linebreaks}}</span>
   {% endif %}
 
   {% if object.risultato %}
-  <p>{{object.risultato | safe | linebreaks}}</p> <!-- Chimica generale e fisica -->
+  <span>{{object.risultato | safe | linebreaks}}</span> <!-- Chimica generale e fisica -->
   {% endif %}
 </div>
 
-<p style="font-size: small;">Esercizio preso da: {{object.referance | safe}}</p>
+<p style="font-size: small;">Esercizio preso da: {{object.referance | safe}}</span>
 
-<p style="font-size: small;">Esercizio caricato: {{object.date}}</p>
+<p style="font-size: small;">Esercizio caricato: {{object.date}}</span>
 
 <script>
 
