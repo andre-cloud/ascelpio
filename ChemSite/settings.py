@@ -95,6 +95,7 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
 ]
 
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
