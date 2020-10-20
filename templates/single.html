@@ -39,52 +39,59 @@ html, body {
     }
 
 </style>
+<div style='padding-top: 50px;'>
+  <h2 style="color: #235043; padding-bottom: 10px; font-family: 'Alice';">{{object.title}}</h2>
 
-<h2 style="color: #235043; padding-bottom: 10px; font-family: 'Alice';">{{object.title}}</h2>
+  <h4 style="color: #568248; padding: 5px; font-family: 'Alice';">Testo esercizio:</h4>
+  <h5> {{object.text | linebreaks}}</h5>
 
-<h4 style="color: #568248; padding: 5px; font-family: 'Alice';">Testo esercizio:</h4>
-<h5> {{object.text | linebreaks}}</h5>
-
-<a class="btn btn-primary" onclick="mostraRisultati(this)">Mostra Risultati</a>
-
-<div id="result" style="display:none">
-  <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Dati e svolgimento </h4>
-
-  {% if object.strutture %}
-  <img src='{{object.strutture.url}}'>
+  {% if object.fig %}
+  <img src='{{object.fig.url}}'>
   {% endif %}
 
-  {% if object.meccanismo %}
-  <img src='{{object.meccanismo.url}}'><!-- chimica organica, se c'è -->
-  {% endif %}
+  <a class="btn btn-primary" onclick="mostraRisultati(this)">Mostra Risultati</a>
 
-  {% if object.dim %}
-  <span>{{object.dim | linebreaks }}</span> <!-- matematica -->
-  {% endif %}
+  <div id="result" style="display:none">
+    <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Risoluzione </h4>
 
-  {% if object.grafico %}
-  <img src='{{object.grafico.url}}'> <!-- matematica, se c'è -->
-  {% endif %}
+    {% if object.strutture %}
+    <img src='{{object.strutture.url}}'>
+    {% endif %}
 
-  {% if object.sistema %}
-  <span>{{object.sistema | safe | linebreaks}}</span> <!-- Chimica generale e fisica -->
-  {% endif %}
+    {% if object.meccanismo %}
+    <img src='{{object.meccanismo.url}}'><!-- chimica organica, se c'è -->
+    {% endif %}
+
+    {% if object.dim %}
+    <span>{{object.dim | linebreaks }}</span> <!-- matematica -->
+    {% endif %}
+
+    {% if object.grafico %}
+    <img src='{{object.grafico.url}}'> <!-- matematica, se c'è -->
+    {% endif %}
+
+    {% if object.sistema %}
+    <span>{{object.sistema | safe | linebreaks}}</span> <!-- Chimica generale e fisica -->
+    {% endif %}
 
 
-  <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Commenti e risultati </h4>
+    <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Commenti</h4>
 
-  {% if object.commento %}
-  <span>{{object.commento | safe | linebreaks}}</span>
-  {% endif %}
+    {% if object.commento %}
+    <span>{{object.commento | safe | linebreaks}}</span>
+    {% endif %}
 
-  {% if object.risultato %}
-  <span>{{object.risultato | safe | linebreaks}}</span> <!-- Chimica generale e fisica -->
-  {% endif %}
+    <h4 style="color: #568248; padding: 5px; font-family: 'Alice';"> Risultati </h4>
+
+    {% if object.risultato %}
+    <span>{{object.risultato | safe | linebreaks}}</span> <!-- Chimica generale e fisica -->
+    {% endif %}
+  </div>
+
+  <p style="font-size: small;">Esercizio preso da: {{object.referance | safe}}</span>
+
+  <p style="font-size: small;">Esercizio caricato: {{object.date}}</span>
 </div>
-
-<p style="font-size: small;">Esercizio preso da: {{object.referance | safe}}</span>
-
-<p style="font-size: small;">Esercizio caricato: {{object.date}}</span>
 
 <script>
 

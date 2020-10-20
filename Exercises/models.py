@@ -8,6 +8,7 @@ class Exercise(PolymorphicModel):
 
     title = models.CharField(max_length=120, help_text='Inserire un titolo esplicativo')
     text = models.TextField(help_text='Scrivere il testo del problema. Se si è utilizzato il bot che sfrutta la tecnologia OCR controllare la correttezza del teso ricevuto.')
+    fig = models.ImageField(upload_to='img/', blank=True, null=True, help_text='Carica un\'eventuale immagine che completi il testo dell\'esercizio')
     date = models.DateTimeField(auto_now=False, auto_now_add=True)
     referance = models.TextField(help_text='Se è un libro: Cognome N., Titolo del testo, Casa editrice, anno di pubblicazione con edizione, pagina. Se è un sito inserire il link')
     status = models.CharField(max_length=10, default="Draft", editable=False)
@@ -39,7 +40,7 @@ class Matematica(Exercise):
         svil_serie = 'SSE', ('12. Sviluppi in serie')
         int_improp = 'INI', ('13. Integrali impropi')
 
-    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
+    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenenza dell\'esercizio')
     grafico = models.ImageField(upload_to='graphs', blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente l\'eventuale grafico necessario per la dimostrazione')
     dim = models.TextField(help_text='Scrivere la dimostrazione per risolvere il problema. È pensato anche come entry per definire l\'eventuale sistema di equazioni per risolvere il problema.')
     commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scelta di ciò che è stato caricato come "struttura" e nell\'eventuale meccanismo.')
@@ -70,7 +71,7 @@ class Chimica_Organica(Exercise):
         carbonile = 'RCO', ('7. Carbonile')
         sintesi = 'SIN', ('8. Sintesi')
     
-    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
+    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenenza dell\'esercizio')
     strutture = models.ImageField(upload_to='str/',help_text='Caricare un file .png/.svg/.jpeg contenente lo schema della reazione')
     meccanismo = models.ImageField(upload_to='mech/', blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente lo schema dell\'eventuale meccanismo di reazione')
     commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scelta di ciò che è stato caricato come "struttura" e nell\'eventuale meccanismo.')
@@ -99,9 +100,9 @@ class Chimica_Generale_Analitica(Exercise):
         acidi_basi = 'ACB', ('8. Teorie del pH e tamponi')
         redox = 'RED', ('9. Reazioni redox')
 
-    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
+    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenenza dell\'esercizio')
     sistema = models.TextField(help_text='Scrivere qui le varie equazioni utilizzate per risolvere il problema. Possibilmente numerarle.')
-    commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scrittura delle varie equazioni utilizzate facendo riferminto.')
+    commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scrittura delle varie equazioni utilizzate facendo rifermento.')
     risultato = models.TextField(help_text='Evidenziare il risultato ottenuto dalla risoluzione delle equazioni.')
 
     def __str__(self) -> str:
@@ -123,9 +124,10 @@ class Chimica_Fisica(Exercise):
         cinetica = 'KIN', ('4. Cinetica chimica')
         elettrodi = 'ELE', ('5. Elettrodi')
 
-    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenza dell\'esercizio')
-    sistema = models.TextField(help_text='Scrivere qui le varie equazioni utilizzate per risolvere il problema. Possibilmente numerarle.')
-    commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scrittura delle varie equazioni utilizzate facendo riferminto.')
+    argomento = models.CharField(max_length=3, choices=Argomento.choices, help_text='Selezionare l\'argomento di appartenenza dell\'esercizio')
+    sistema = models.TextField(blank=True, help_text='Scrivere qui le varie equazioni utilizzate per risolvere il problema. Possibilmente numerarle.')
+    grafico = models.ImageField(upload_to='graphs', blank=True, help_text='Caricare un file .png/.svg/.jpeg contenente l\'eventuale grafico necessario.')
+    commento = models.TextField(help_text='Commentare il processo mentale che ha portato alla scrittura delle varie equazioni utilizzate facendo rifermento.')
     risultato = models.TextField(help_text='Evidenziare il risultato ottenuto dalla risoluzione delle equazioni.')
 
     def __str__(self) -> str:
